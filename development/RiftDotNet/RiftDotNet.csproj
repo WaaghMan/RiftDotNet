@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RiftDotNet</RootNamespace>
     <AssemblyName>RiftDotNet</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="SharpDX, Version=2.4.2.0, Culture=neutral, PublicKeyToken=627a3d6d1956f55a, processorArchitecture=MSIL">
@@ -61,11 +63,11 @@
     </ProjectReference>
     <ProjectReference Include="..\RiftDotNet.Win32\RiftDotNet.Win32.vcxproj">
       <Project>{4ac4fab6-4848-4649-8ac8-30f952e839d0}</Project>
-      <Name>RiftDotNet.Win32 %28Visual Studio 2010%29</Name>
+      <Name>RiftDotNet.Win32</Name>
     </ProjectReference>
     <ProjectReference Include="..\RiftDotNet.x64\RiftDotNet.x64.vcxproj">
       <Project>{5bbd8b72-83f5-4f33-a6e4-868c67d0c436}</Project>
-      <Name>RiftDotNet.x64 %28Visual Studio 2010%29</Name>
+      <Name>RiftDotNet.x64</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

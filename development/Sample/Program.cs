@@ -1,6 +1,7 @@
 ﻿using System;
 using RiftDotNet;
 using log4net;
+using System.Threading;
 
 namespace Sample
 {
@@ -27,8 +28,15 @@ namespace Sample
 				Console.WriteLine("Found HMD at: {0}", hmd.Info.DisplayDevice);
 				Console.WriteLine("Manufacturer: {0}", hmd.Info.Manufacturer);
 
+                while (true)
+                {
+                    Console.WriteLine("Acceleration " + hmd.Acceleration.X + "," + hmd.Acceleration.Y + "," + hmd.Acceleration.Z);
+                    Thread.Sleep(100);
+                }
+
 				hmd.Reset();
 			}
+            Console.Read();
 		}
 
 		// This is an old sample which uses the native interface. In most cases

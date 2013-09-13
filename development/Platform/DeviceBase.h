@@ -69,7 +69,7 @@ namespace RiftDotNet
 					if (IsDisposed)
 						return 0;
 
-					return _native->GetRefCount();
+					return 0;//_native->GetRefCount();
 				}
 			}
 
