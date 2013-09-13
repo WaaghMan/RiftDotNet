@@ -19,7 +19,6 @@ namespace RiftDotNet
 		public ref class DeviceBase abstract
 			: public IDevice
 		{
-			static log4net::ILog^ Log = log4net::LogManager::GetLogger(System::Reflection::MethodBase::GetCurrentMethod()->DeclaringType);
 
 		public:
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using log4net;
 
 namespace RiftDotNet
 {
@@ -17,11 +16,5 @@ namespace RiftDotNet
 		/// </summary>
 		/// <returns></returns>
 		IHMDInfo CreateHMDInfo();
-
-		/// <summary>
-		/// A reference to the logger used by the Rift SDK.
-		/// </summary>
-		/// <returns></returns>
-		ILog GetLogger();
 	}
 }

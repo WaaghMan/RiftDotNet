@@ -44,9 +44,6 @@ namespace RiftDotNet
 				}
 				catch(Exception^ e)
 				{
-					// We shouldn't really let exceptions propagate to
-					// the native code: We'll just catch everything and log it, for now...
-					Rift::Log->ErrorFormat("Caught exception in IMessageHandler::OnMessage, ignoring it: {0}", e);
 				}
 			}
 
@@ -58,7 +55,6 @@ namespace RiftDotNet
 				}
 				catch(Exception^ e)
 				{
-					Rift::Log->ErrorFormat("Caught exception in IMessageHandler::SupportsMessageType, ignoring it: {0}", e);
 				}
 
 				return false;

@@ -18,9 +18,6 @@ namespace RiftDotNet
 		/// </summary>
 		private ref class Rift
 		{
-		public:
-
-			static log4net::ILog^ Log = log4net::LogManager::GetLogger(System::Reflection::MethodBase::GetCurrentMethod()->DeclaringType);
 		};
 
 
@@ -29,7 +26,6 @@ namespace RiftDotNet
 		/// OVR::Log implementation which dispatches all logging evets to Log4Net.
 		/// </summary>
 		public class Log4Net
-			: public OVR::Log
 		{
 		public:
 
@@ -45,27 +41,27 @@ namespace RiftDotNet
 				switch(messageType)
 				{
 				case OVR::Log_Error:
-					if (!Rift::Log->IsErrorEnabled)
+					//if (!Rift::Log->IsErrorEnabled)
 						return;
 
 					break;
 
 				case OVR::Log_Debug:
 				case OVR::Log_DebugText:
-					if (!Rift::Log->IsDebugEnabled)
+					//if (!Rift::Log->IsDebugEnabled)
 						return;
 
 					break;
 
 				case OVR::Log_Assert:
-					if (!Rift::Log->IsFatalEnabled)
+					//if (!Rift::Log->IsFatalEnabled)
 						return;
 
 					break;
 
 				case OVR::Log_Text:
 				default:
-					if (!Rift::Log->IsInfoEnabled)
+					//if (!Rift::Log->IsInfoEnabled)
 						return;
 
 					break;
@@ -99,21 +95,21 @@ namespace RiftDotNet
 				switch(messageType)
 				{
 				case OVR::Log_Error:
-					Rift::Log->Error(message);
+					//Rift::Log->Error(message);
 					break;
 
 				case OVR::Log_Debug:
 				case OVR::Log_DebugText:
-					Rift::Log->Debug(message);
+					//Rift::Log->Debug(message);
 					break;
 
 				case OVR::Log_Assert:
-					Rift::Log->Fatal(message);
+					//Rift::Log->Fatal(message);
 					break;
 
 				case OVR::Log_Text:
 				default:
-					Rift::Log->Info(message);
+					//Rift::Log->Info(message);
 					break;
 				}
 			}

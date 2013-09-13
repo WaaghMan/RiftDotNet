@@ -20,20 +20,12 @@ namespace RiftDotNet
 		{
 		private:
 
-			static log4net::ILog^ Log = log4net::LogManager::GetLogger(System::Reflection::MethodBase::GetCurrentMethod()->DeclaringType);
-
 		public:
 
 			DeviceHandle(HandleWrapper* wrapper)
 			{
 				if (wrapper == nullptr)
 					throw gcnew ArgumentNullException("wrapper");
-
-				if (Log->IsDebugEnabled)
-				{
-					Log->DebugFormat("Wrapping device handle '{0:x}'",
-						reinterpret_cast<std::size_t>(wrapper));
-				}
 
 				_native = wrapper;
 			}
@@ -42,11 +34,6 @@ namespace RiftDotNet
 			{
 				if (_native != nullptr)
 				{
-					if (Log->IsDebugEnabled)
-						Log->DebugFormat("Disposing DeviceHandle '{0:x}', Type: {1}",
-						reinterpret_cast<std::size_t>(_native),
-						DeviceType);
-
 					delete _native;
 					_native = nullptr;
 				}

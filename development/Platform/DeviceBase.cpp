@@ -22,25 +22,12 @@ namespace RiftDotNet
 
 			_native = native;
 			_equalityHandle = IntPtr(native);
-
-			if (Log->IsDebugEnabled)
-			{
-				Log->DebugFormat("Wrapping device '{0:x}', Type: {1}, RefCount: {2}",
-					reinterpret_cast<std::size_t>(native),
-					Type,
-					RefCount);
-			}
 		}
 
 		DeviceBase::!DeviceBase()
 		{
 			if (_native != nullptr)
 			{
-				Log->DebugFormat("Disposing device '{0:x}', Type: {1}, RefCount (before): {2}",
-					reinterpret_cast<std::size_t>(_native),
-					Type,
-					RefCount);
-
 				// So that we can actually delete our handler-wrapper
 				_native->SetMessageHandler(nullptr);
 
@@ -91,16 +78,6 @@ namespace RiftDotNet
 			auto native = wrapper != nullptr
 				? wrapper->GetNative()
 				: nullptr;
-
-			if (Log->IsInfoEnabled)
-			{
-				if (handler != nullptr)
-					Log->InfoFormat("Attaching message handler '{1:x}' to device '{0:x}'",
-					reinterpret_cast<std::size_t>(_native),
-					reinterpret_cast<std::size_t>(native));
-				else
-					Log->InfoFormat("Detaching message handler from device '{0:x}'", reinterpret_cast<std::size_t>(_native));
-			}
 
 			_native->SetMessageHandler(native);
 		}

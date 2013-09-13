@@ -1,17 +1,11 @@
 ﻿using System;
 using RiftDotNet;
-using log4net;
 using System.Threading;
 
 namespace Sample
 {
 	internal class Program
 	{
-		/// <summary>
-		/// Without this line, log4net refuses to do anything.
-		/// </summary>
-		private static readonly ILog Log = LogManager.GetLogger(typeof(Program));
-
 		private static void Main(string[] args)
 		{
 			using (var mgr = new HMDManager())

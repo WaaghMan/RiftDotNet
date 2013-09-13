@@ -24,11 +24,6 @@ namespace RiftDotNet
 		{
 		public:
 
-			virtual log4net::ILog^ GetLogger()
-			{
-				return Rift::Log;
-			}
-
 			virtual IHMDInfo^ CreateHMDInfo()
 			{
 				return gcnew HMDInfo();
@@ -64,7 +59,7 @@ namespace RiftDotNet
 				{
 					// Yeah, who's gonna delete that?
 					auto log = new Log4Net();
-					OVR::System::Init(log);
+					OVR::System::Init();
 				}
 
 				_theOne = gcnew Factory();

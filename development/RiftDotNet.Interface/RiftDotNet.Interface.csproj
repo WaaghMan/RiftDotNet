@@ -33,9 +33,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net">
-      <HintPath>..\..\runtimes\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="SharpDX">
       <HintPath>..\..\runtimes\SharpDX.dll</HintPath>
     </Reference>

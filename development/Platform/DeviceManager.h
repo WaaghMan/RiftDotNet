@@ -26,8 +26,6 @@ namespace RiftDotNet
 		{
 		private:
 
-			static log4net::ILog^ Log = log4net::LogManager::GetLogger(System::Reflection::MethodBase::GetCurrentMethod()->DeclaringType);
-
 		public:
 
 			static DeviceManager^ Create()
@@ -69,25 +67,14 @@ namespace RiftDotNet
 					auto enumerator = GetNative<OVR::DeviceManager>()->EnumerateDevices<OVR::SensorDevice>(true);
 					auto ret = gcnew List<IDeviceHandle<ISensorDevice^, ISensorInfo^>^>();
 
-					Log->DebugFormat("Enumerating ISensorDevices");
-					Log->DebugFormat("DeviceEnumerator<>.IsAvailable: {0}", enumerator.IsAvailable());
-					Log->DebugFormat("DeviceEnumerator<>.DeviceType: {0}", (DeviceType)enumerator.GetType());
-
 					while(enumerator.GetType() != OVR::Device_None)
 					{
-						Log->DebugFormat("Found a device, adding handle to enumeration...");
 						auto wrapper = new EnumeratorWrapper<OVR::DeviceEnumerator<OVR::SensorDevice>>(enumerator);
 						ret->Add(gcnew TypedDeviceHandle<ISensorDevice^,ISensorInfo^>(wrapper));
 
 						if (!enumerator.Next())
 							break;
-
-						Log->DebugFormat("DeviceEnumerator<>.IsAvailable: {0}", enumerator.IsAvailable());
-						Log->DebugFormat("DeviceEnumerator<>.DeviceType: {0}", (DeviceType)enumerator.GetType());
 					}
-
-					if (ret->Count == 0)
-						Log->InfoFormat("Unable to find any ISensorDevices");
 
 					return gcnew DisposableArray<IDeviceHandle<ISensorDevice^, ISensorInfo^>^>(ret->ToArray());
 				}
@@ -104,25 +91,14 @@ namespace RiftDotNet
 					auto enumerator = GetNative<OVR::DeviceManager>()->EnumerateDevices<OVR::HMDDevice>(true);
 					auto ret = gcnew List<IDeviceHandle<IHMDDevice^,IHMDInfo^>^>();
 
-					Log->DebugFormat("Enumerating ISensorDevices");
-					Log->DebugFormat("DeviceEnumerator<>.IsAvailable: {0}", enumerator.IsAvailable());
-					Log->DebugFormat("DeviceEnumerator<>.DeviceType: {0}", (DeviceType)enumerator.GetType());
-
 					while(enumerator.GetType() != OVR::Device_None)
 					{
-						Log->DebugFormat("Found a device, adding handle to enumeration...");
 						auto wrapper = new EnumeratorWrapper<OVR::DeviceEnumerator<OVR::HMDDevice>>(enumerator);
 						ret->Add(gcnew TypedDeviceHandle<IHMDDevice^,IHMDInfo^>(wrapper));
 
 						if (!enumerator.Next())
 							break;
-
-						Log->DebugFormat("DeviceEnumerator<>.IsAvailable: {0}", enumerator.IsAvailable());
-						Log->DebugFormat("DeviceEnumerator<>.DeviceType: {0}", (DeviceType)enumerator.GetType());
 					}
-
-					if (ret->Count == 0)
-						Log->InfoFormat("Unable to find any IHMDDevices");
 
 					return gcnew DisposableArray<IDeviceHandle<IHMDDevice^, IHMDInfo^>^>(ret->ToArray());
 				}
