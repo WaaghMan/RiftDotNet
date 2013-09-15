@@ -136,7 +136,7 @@ namespace RiftDotNet
 				try
 				{
 					if (IsAttached)
-						_predictedOrientation = _resources.Fusion.Orientation;
+                        _predictedOrientation = _resources.Fusion.PredictedOrientation;
 
 					return _predictedOrientation;
 				}
