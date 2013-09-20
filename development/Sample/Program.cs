@@ -21,7 +21,7 @@ namespace Sample
 
 				Console.WriteLine("Found HMD at: {0}", hmd.Info.DisplayDevice);
 				Console.WriteLine("Manufacturer: {0}", hmd.Info.Manufacturer);
-
+                
                 while (true)
                 {
                     Console.WriteLine("Acceleration " + hmd.Acceleration.X + "," + hmd.Acceleration.Y + "," + hmd.Acceleration.Z);

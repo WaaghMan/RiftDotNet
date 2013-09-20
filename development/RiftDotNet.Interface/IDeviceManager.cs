@@ -19,5 +19,10 @@
 		/// attached to this system.
 		/// </summary>
 		DisposableArray<IDeviceHandle<IHMDDevice, IHMDInfo>> HMDDevices { get; }
+
+        /// <summary>
+        /// Get Default User Profile
+        /// </summary>
+        IProfile DeviceDefaultProfile { get; }
 	}
 }

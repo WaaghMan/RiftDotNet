@@ -112,6 +112,8 @@
     <ClInclude Include="..\Platform\MessageLatencyTestColorDetected.h" />
     <ClInclude Include="..\Platform\MessageLatencyTestSamples.h" />
     <ClInclude Include="..\Platform\MessageLatencyTestStarted.h" />
+    <ClInclude Include="..\Platform\Profile.h" />
+    <ClInclude Include="..\Platform\ProfileManager.h" />
     <ClInclude Include="..\Platform\RiftDotNet.h" />
     <ClInclude Include="..\Platform\SensorDevice.h" />
     <ClInclude Include="..\Platform\SensorFusion.h" />

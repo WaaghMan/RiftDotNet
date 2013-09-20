@@ -30,6 +30,7 @@ namespace RiftDotNet
 		private readonly ReaderWriterLockSlim _lock;
 		private readonly IDeviceManager _manager;
 		private readonly Dictionary<DeviceKey, DeviceResources> _nativeResources;
+        private readonly IProfile _defaultprofile;
 
 		/// <summary>
 		/// This event is fired when the given device is attached to the computer.
@@ -64,6 +65,7 @@ namespace RiftDotNet
 			_manager.MessageHandler = _handler;
 			_nativeResources = new Dictionary<DeviceKey, DeviceResources>();
 			_devices = new Dictionary<DeviceKey, HMD>();
+            _defaultprofile = manager.DeviceDefaultProfile;
 
 			// Initially, we must to enumerate all devices, which are currently attached
 			// to the computer.
@@ -83,6 +85,17 @@ namespace RiftDotNet
 		public HMDManager()
 			: this(Factory.PlatformFactory)
 		{}
+
+        /// <summary>
+        ///     ..
+        /// </summary>
+        public IProfile DefaultProfile
+        {
+            get
+            {
+                return _defaultprofile;
+            }
+        }
 
 		/// <summary>
 		///     A reference to an HMD which is currently attached to this computer.

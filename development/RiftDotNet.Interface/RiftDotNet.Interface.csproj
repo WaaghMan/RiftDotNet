@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IProfile.cs" />
+    <Compile Include="IProfileManager.cs" />
     <Compile Include="DisposableArray.cs" />
     <Compile Include="IMessageHandler.cs" />
     <Compile Include="CoordinateFrame.cs" />

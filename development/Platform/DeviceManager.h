@@ -2,6 +2,7 @@
 
 #include <OVR_Device.h>
 #include <OVR_DeviceImpl.h>
+#include <OVR_Profile.h>
 
 #include "RiftDotNet.h"
 #include "System.h"
@@ -11,6 +12,7 @@
 #include "HMDDevice.h"
 #include "SensorDevice.h"
 #include "ValueWrapper.h"
+#include "Profile.h"
 
 using namespace System::Collections::Generic;
 
@@ -42,6 +44,30 @@ namespace RiftDotNet
 			{
 				
 			}
+
+			property RiftDotNet::IProfile^ DeviceDefaultProfile
+			{
+				virtual RiftDotNet::IProfile^ get() override
+				{
+					RiftDotNet::IProfile^ ret;
+
+					if (IsDisposed)
+						throw gcnew ObjectDisposedException("IHMDDevice");									
+
+					auto manager=GetNative<OVR::DeviceManager>()->GetProfileManager();
+					if(manager==NULL)
+						return ret;					
+					auto profile = manager->GetDeviceDefaultProfile(OVR::ProfileType::Profile_Unknown);					
+					if(profile==NULL)
+						profile = manager->GetDeviceDefaultProfile(OVR::ProfileType::Profile_RiftDKHD);
+					if(profile==NULL)
+						profile = manager->GetDeviceDefaultProfile(OVR::ProfileType::Profile_RiftDK1);
+					if(profile==NULL)
+						return ret;
+					return gcnew RiftDotNet::Platform::Profile(profile);
+				}
+			}
+
 
 			property RiftDotNet::IDeviceInfo^ Info
 			{
