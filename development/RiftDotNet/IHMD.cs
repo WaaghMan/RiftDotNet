@@ -64,11 +64,9 @@ namespace RiftDotNet
 		float AccelGain { get; set; }
 
 		///<summary>
-		/// Multiplier for yaw rotation (turning); setting this higher than 1 (the default) can allow the game
-		/// to be played without auxillary rotation controls, possibly making it more immersive. Whether this is more
-		/// or less likely to cause motion sickness is unknown.
+        /// Enables/disables magnetometer based yaw drift correction. Must also have mag calibration data for this correction to work.
 		///</summary>
-		float YawMultiplier { get; set; }
+		bool YawCorrection { get; set; }
 
 		/// <summary>
 		/// Whether or not orientation is to be predicted ahead of time, or not.

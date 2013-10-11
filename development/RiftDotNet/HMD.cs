@@ -17,7 +17,7 @@ namespace RiftDotNet
 
 		private bool _isPredictionEnabled;
 		private TimeSpan _predictionTime;
-		private float _yawMultiplier;
+        private bool _yawCorrection;
 		private float _accelGain;
 
 		#endregion
@@ -77,7 +77,7 @@ namespace RiftDotNet
 						// This is even more interesting. The user may have changed
 						// setting like yaw multiplier and whatnot: We want to apply
 						// those settings again.
-						_resources.Fusion.YawMultiplier = _yawMultiplier;
+                        _resources.Fusion.YawCorrection = _yawCorrection;
 						_resources.Fusion.IsPredictionEnabled = _isPredictionEnabled;
 						_resources.Fusion.PredictionTime = _predictionTime;
 						_resources.Fusion.AccelGain = _accelGain;
@@ -219,7 +219,7 @@ namespace RiftDotNet
 			}
 		}
 
-		public float YawMultiplier
+		public bool YawCorrection
 		{
 			get
 			{
@@ -227,9 +227,9 @@ namespace RiftDotNet
 				try
 				{
 					if (IsAttached)
-						_accelGain = _resources.Fusion.AccelGain;
+                        _yawCorrection = _resources.Fusion.YawCorrection;
 
-					return _accelGain;
+                    return _yawCorrection;
 				}
 				finally
 				{
@@ -242,9 +242,9 @@ namespace RiftDotNet
 				try
 				{
 					if (IsAttached)
-						_resources.Fusion.AccelGain = value;
+						_resources.Fusion.YawCorrection = value;
 
-					_accelGain = value;
+                    _yawCorrection = value;
 				}
 				finally
 				{

@@ -47,7 +47,7 @@ namespace RiftDotNet
 
 			property RiftDotNet::IProfile^ DeviceDefaultProfile
 			{
-				virtual RiftDotNet::IProfile^ get() override
+				virtual RiftDotNet::IProfile^ get()
 				{
 					RiftDotNet::IProfile^ ret;
 

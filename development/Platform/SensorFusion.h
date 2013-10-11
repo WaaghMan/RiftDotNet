@@ -186,24 +186,24 @@ namespace RiftDotNet
 				}
 			}
 
-			property float YawMultiplier
+			property bool YawCorrection
 			{
-				virtual float get()
+				virtual bool get()
 				{
 					if (IsDisposed)
 						throw gcnew ObjectDisposedException("ISensorDevice");
 
-					return _native->GetYawMultiplier();
+					return _native->IsYawCorrectionEnabled();
 				}
-				virtual void set(float f)
+				virtual void set(bool value)
 				{
 					if (IsDisposed)
 						throw gcnew ObjectDisposedException("ISensorDevice");
 
-					_native->SetYawMultiplier(f);
+					_native->SetYawCorrectionEnabled(value);
 				}
 			}
-
+			
 			property bool IsPredictionEnabled
 			{
 				virtual bool get()

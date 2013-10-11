@@ -60,7 +60,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libovr64.lib;User32.lib;Winmm.lib</AdditionalDependencies>
+      <AdditionalDependencies>libovr64.lib;User32.lib;Winmm.lib;shfolder.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OculusSDK)\LibOVR\Lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <RegisterOutput>false</RegisterOutput>
     </Link>
@@ -75,7 +75,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libovr64.lib;User32.lib;Winmm.lib</AdditionalDependencies>
+      <AdditionalDependencies>libovr64.lib;User32.lib;Winmm.lib;shfolder.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OculusSDK)\LibOVR\Lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
