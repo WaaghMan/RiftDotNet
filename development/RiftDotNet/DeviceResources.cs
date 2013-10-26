@@ -25,10 +25,11 @@ namespace RiftDotNet
 				throw new ArgumentNullException();
 			if (Device == null)
 				throw new ArgumentNullException();
-			if (Sensor == null)
-				throw new ArgumentNullException();
+            if (Sensor == null)
+                System.Diagnostics.Trace.TraceWarning("Unable to create Sensor");
 
-			Key = new DeviceKey(Sensor.Info);
+            if (Sensor != null)
+                Key = new DeviceKey(Sensor.Info);
 		}
 
 		#region IDisposable Members
@@ -36,7 +37,8 @@ namespace RiftDotNet
 		public void Dispose()
 		{
 			Fusion.Dispose();
-			Sensor.Dispose();
+            if (Sensor != null)
+                Sensor.Dispose();
 			Device.Dispose();
 		}
 
